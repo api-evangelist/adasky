@@ -1,0 +1,113 @@
+generated: '2026-09-07'
+method: probed
+source: >-
+  Direct HTTPS probes of the RFC 8615 well-known path list against every host this record
+  knows. Adasky publishes no API, so the only hosts in scope are the registrable domain and
+  its www label; no api./docs./developer. subdomain exists (all NXDOMAIN, see notes).
+note: >-
+  Every probed path returned 404 and every 404 body is the site's WordPress "Page not found"
+  HTML template, not a document. NO WellKnown or SecurityTxt pointer is emitted from this
+  file — it records an absence, and a pointer would assert a surface Adasky does not serve.
+hosts:
+- host: www.adasky.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+- host: adasky.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+x-contract-discovery:
+  note: >-
+    STEP 0b contract discovery, run 2026-09-07 against every host evidence pointed at.
+    No REST OpenAPI, GraphQL SDL, MCP server, A2A agent card, gRPC/Protobuf, WSDL or OGC
+    surface was found. adasky.com is a 17-page WordPress marketing site; the only
+    machine-readable endpoint it serves is WordPress core's own /wp-json/ REST API, which
+    is the CMS, not an Adasky product API, and is deliberately NOT registered as a contract.
+  probes:
+  - url: https://www.adasky.com/openapi.json
+    status: 404
+  - url: https://www.adasky.com/swagger.json
+    status: 404
+  - url: https://www.adasky.com/api-docs
+    status: 404
+  - url: https://www.adasky.com/docs
+    status: 404
+  - url: https://www.adasky.com/developers
+    status: 404
+  - url: https://www.adasky.com/developer
+    status: 404
+  - url: https://www.adasky.com/api
+    status: 404
+  - url: https://www.adasky.com/graphql
+    status: 404
+  - url: https://www.adasky.com/llms.txt
+    status: 404
+  - url: https://www.adasky.com/wp-json/
+    status: 200
+    note: WordPress core REST API discovery root, 0 posts. Not an Adasky product contract.
+  - url: https://api.github.com/orgs/ADASKY
+    status: 200
+    note: >-
+      GitHub organization ADASKY exists (created 2016-12-04) but has 0 public repositories,
+      no name, no description and no blog URL. No GitHubOrganization pointer is emitted —
+      an empty org is not a published code surface.
+  - url: https://api.github.com/orgs/ADASKY/repos
+    status: 200
+    note: Empty array.
+  - url: https://registry.npmjs.org/-/v1/search?text=adasky
+    status: 200
+    note: 0 results.
+  - url: https://pypi.org/pypi/adasky/json
+    status: 404
+  - url: https://crates.io/api/v1/crates?q=adasky
+    status: 200
+    note: 0 results.
+  subdomains_nxdomain:
+  - api.adasky.com
+  - docs.adasky.com
+  - developer.adasky.com
+  - developers.adasky.com
+  - dev.adasky.com
+  - portal.adasky.com
+  - cloud.adasky.com
+  - app.adasky.com
+  - insights.adasky.com

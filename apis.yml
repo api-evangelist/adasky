@@ -1,17 +1,55 @@
 aid: adasky
 name: Adasky
-description: 'Adasky is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  ADASKY (Adasky Ltd.) is an Israeli automotive sensor company founded in January 2016 and
+  headquartered in Yokneam, Israel, that develops and manufactures automotive-grade long-wave
+  infrared (LWIR) thermal imaging cameras and the perception software that runs on them. Its
+  flagship product, Viper, is a compact solid-state shutterless thermal camera with 50mK
+  sensitivity, object detection to about 300 metres and living-being classification beyond 200
+  metres, sold into ADAS and autonomous-vehicle programs for pedestrian, cyclist and wildlife
+  detection, free-space detection and automatic emergency braking in darkness, glare and fog. A
+  second line, SharpVision, serves intelligent transportation, V2X and smart-city infrastructure.
+  ADASKY publishes no developer program, API reference, SDK or machine-readable specification;
+  its software ships embedded in the camera under commercial OEM engagement.
 url: https://raw.githubusercontent.com/api-evangelist/adasky/refs/heads/main/apis.yml
+image: https://www.adasky.com/wp-content/themes/adasky-v3/images/logo-header.png
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: >-
+  enrichment pass 2026-09-07: full STEP 0b contract discovery run against every host evidence
+  pointed at; no public API surface of any kind found.
+x-founded: '2016'
+x-headquarters: Yokneam, Israel
+x-products:
+- name: Viper
+  summary: Automotive-grade shutterless LWIR thermal camera for ADAS and AV perception.
+- name: SharpVision
+  summary: Thermal camera for ITS, V2X and smart-city infrastructure deployments.
+x-venue-listings:
+- venue: EquityZen
+  url: https://equityzen.com/company/adasky
+  status: 200
+  note: >-
+    Secondary-market share listing; the source of the harvest entry. It stood as this record's
+    only Website pointer before this pass and has been demoted here — a trading venue's page
+    about a company is a third party's page, not the company's own web presence, and wiring it
+    as Website credits discoverability to the wrong domain.
 specificationVersion: '0.20'
 created: '2026-09-07'
 modified: '2026-09-07'
 tags:
 - Company
+- Automotive
+- Thermal Imaging
+- Sensors
+- ADAS
+- Autonomous Vehicles
+- Computer Vision
+- Smart Cities
+- Hardware
+- Israel
+- No Developer Program
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -20,4 +58,57 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://equityzen.com/company/adasky
+  url: https://www.adasky.com/
+- type: TermsOfService
+  url: https://www.adasky.com/terms-of-use/
+- type: PrivacyPolicy
+  url: https://www.adasky.com/privacy-policy/
+- type: ContactUs
+  url: https://www.adasky.com/contact-us/
+- type: Newsroom
+  url: https://www.adasky.com/news/
+- type: Careers
+  url: https://www.adasky.com/join-us/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/adasky
+- type: YouTube
+  url: https://www.youtube.com/channel/UCiOhA19ovGGIP7_GKBce-pA
+- type: DomainSecurity
+  url: security/adasky-domain-security.yml
+- type: LLMsTxt
+  url: llms/adasky-llms.txt
+x-enrichment:
+  date: '2026-09-07'
+  status: minimal
+  artifacts_added: 3
+  pass: local-v3
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    ADASKY sells an LWIR thermal camera whose perception software ships embedded in the
+    hardware under OEM engagement, and its entire web presence is a 17-page WordPress
+    marketing site with no /developers, /docs, /api or /graphql path, no api./docs./developer.
+    subdomain (nine developer-shaped labels all NXDOMAIN), an empty GitHub organization
+    (github.com/ADASKY, 0 public repositories since 2016), zero packages on npm, PyPI or
+    crates.io, and all seven RFC 8615 well-known paths 404 on both www.adasky.com and
+    adasky.com — the only machine-readable endpoint on the domain is WordPress core's own
+    /wp-json/, which is the CMS and not an Adasky product API.
+  evidence:
+  - url: https://www.adasky.com/developers
+    status: 404
+  - url: https://www.adasky.com/openapi.json
+    status: 404
+  - url: https://www.adasky.com/graphql
+    status: 404
+  - url: https://www.adasky.com/llms.txt
+    status: 404
+  - url: https://www.adasky.com/.well-known/api-catalog
+    status: 404
+  - url: https://www.adasky.com/.well-known/agent-card.json
+    status: 404
+  - url: https://api.github.com/orgs/ADASKY/repos
+    status: 200
+  - url: https://www.adasky.com/wp-json/
+    status: 200
+  checked: '2026-09-07'
